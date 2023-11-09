@@ -24,6 +24,6 @@ const UsuarioSchema = new mongoose.Schema({
     admin: { type: Boolean, required: true, default: false }
 }); //construção do modelo de dados
 
-const Usuario = mongoose.model("usuarios". UsuarioSchema); //exportação
+const Usuario = mongoose.model("usuarios", UsuarioSchema); //exportação
 
 module.exports = Usuario;
