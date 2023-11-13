@@ -80,35 +80,43 @@ const removeUserController = async (req, res) => {
 };
 
 const addUserAddressController = async (req, res) => {
-    try {
-        req.body.createdAt = new Date();
+    try{
         const endereco = await userService.addUserAddressService(req.params.id, req.body);
 
-        if(endereco.value == null){            
-            res.status(400).send({ message: `Algo deu errado no endereço, tente novamente!`});
+        console.log(endereco);
+
+        if(endereco.value == null){
+            res.status(400).send({ message: `Algo deu errado no endereço, tente novamente`});
         }else{
             res.status(201).send({ message: `Endereço adicionado com sucesso!`});
         }
 
-    } catch (err) {
-        console.log(`erro:${err.message}`);
-        return res.status(500).send({ message: `Erro inesperado tente novamente!`});
+    }catch (err){
+        console.log(`erro: ${err.message}`);
+        return res.status(500).send({ message: `Erro inesperado tente novamente!`});  
     }
 };
 
 const removeUserAddressController = async (req, res) => {
-    try {
+    try{
         const endereco = await userService.removeUserAddressService(req.body.id, req.body.addressId);
+        let found = false;
 
-        if(endereco.value == null){            
-            res.status(400).send({ message: `Algo deu errado no endereço, não foi removido, tente novamente!`});
-        }else{
+        endereco.value.enderecos.map((valor, chave) => {
+            if(valor._id == req.body.addressId){
+                found = true;
+            }
+        })
+
+        if(found){
             res.status(200).send({ message: `Endereço removido com sucesso!`});
+        }else{
+            res.status(400).send({ message: `Algo deu errado no endereço, não foi removido, tente novamente`});
         }
 
-    } catch (err) {
-        console.log(`erro:${err.message}`);
-        return res.status(500).send({ message: `Erro inesperado tente novamente!`});
+    }catch (err){
+        console.log(`erro: ${err.message}`);
+        return res.status(500).send({ message: `Erro inesperado tente novamente!`});  
     }
 };
 
