@@ -12,7 +12,6 @@ const findUserByIdController = async (req, res) => {
         
     } catch (err) {
         if (err.kind == "ObjectId") {
-            console.log(err.kind == "ObjectId");
             return res.status(400).send({ message: `ID informado, está incorreto. Tente novamente!`});
         }
 
@@ -85,7 +84,7 @@ const addUserAddressController = async (req, res) => {
 
         console.log(endereco);
 
-        if(endereco.value == null){
+        if(endereco == null){
             res.status(400).send({ message: `Algo deu errado no endereço, tente novamente`});
         }else{
             res.status(201).send({ message: `Endereço adicionado com sucesso!`});
@@ -102,11 +101,11 @@ const removeUserAddressController = async (req, res) => {
         const endereco = await userService.removeUserAddressService(req.body.id, req.body.addressId);
         let found = false;
 
-        endereco.value.enderecos.map((valor, chave) => {
+        endereco.enderecos.map((valor, chave) => {
             if(valor._id == req.body.addressId){
                 found = true;
             }
-        })
+        });
 
         if(found){
             res.status(200).send({ message: `Endereço removido com sucesso!`});
