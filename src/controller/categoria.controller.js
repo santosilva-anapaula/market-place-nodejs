@@ -18,7 +18,7 @@ const findAllCategoriaController = async (req, res) => {
     }
 };
 
-const createCategoriaController= async (boreq, resdy) =>{
+const createCategoriaController= async (req, res) =>{
     try {
         const corpo = {
             ...req.body,
