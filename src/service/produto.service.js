@@ -28,7 +28,7 @@ const addCategoriaProductService = (id, categoria) => {
         {
             $push: {
                 categoria: {
-                    _id: id,
+                    _id: categoria._id,
                     createdAt: categoria.createdAt
                 },
             },
@@ -39,15 +39,15 @@ const addCategoriaProductService = (id, categoria) => {
     );
 };
 
-const removeCategoriaProductService = (categoria) => {
+const removeCategoriaProductService = (id, categoria) => {
     return Produto.findOneAndUpdate(
         {
-            _id: categoria.id,
+            _id: id,
         },
         {
             $pull: {
                 categoria: {
-                    _id: categoria.id,
+                    _id: categoria._id,
                 },
             },
         },
