@@ -53,6 +53,8 @@ const validaCategoria = (req, res, next) => {
     if(!req.body.nome){
         return res.status(400).send({ message: `O campo 'nome' precisa ser preenchido`});
     }
+
+    return next();
 }
 
 module.exports = {
