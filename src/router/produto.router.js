@@ -4,10 +4,11 @@ const produtoController = require("../controller/produto.controller");
 
 const authMiddleware = require("../middleware/auth.middleware");
 const { validaProduto, validaId } = require("../middleware/validacao.middleware");
+const paginacao = require("../middleware/paginacao.middleware");
 
 //rotas get
 router.get("/find/:id", authMiddleware, validaId, produtoController.findProductByIdController);
-router.get("/findAll", authMiddleware, produtoController.findAllProductController);
+router.get("/findAll", authMiddleware, paginacao, produtoController.findAllProductController);
 
 //rotas post
 router.post("/create", authMiddleware, validaProduto, produtoController.createProductController);
