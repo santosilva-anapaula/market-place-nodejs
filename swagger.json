@@ -695,16 +695,23 @@
                             "type": "string"
                         },
                         "name": "id"
-                    },
-                    {
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/ProductFav"
-                        },
-                        "name": "body"
                     }
                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties":{
+                                    "_id": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {
                     "200":{
                         "description": "retorna um usuario com produto favorito removido",
