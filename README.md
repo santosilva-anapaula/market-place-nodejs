@@ -2,8 +2,10 @@
 
 Codigo de market place desenvolvido em aula
 
-Código desenvolvido em JavaScript
-![NodeJS](https://www.librebyte.net/wp-content/uploads/2021/01/200px-Node.js_logo.svg_.png "NodeJS")
+Código desenvolvido em JavaScript  
+
+
+![NodeJS](https://www.librebyte.net/wp-content/uploads/2021/01/200px-Node.js_logo.svg_.png "NodeJS")  
 
 ## Instalação
 
