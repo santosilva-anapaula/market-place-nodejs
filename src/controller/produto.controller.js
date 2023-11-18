@@ -53,8 +53,7 @@ const deleteProductController = async (req, res) => {
 
 const addCategoriaProductController = async (req, res) => {
     try {
-        const categoria = await produtoService.addCategoriaProductService(req.params.id, req.body);
-        res.status(200).send(categoria);
+        res.status(200).send(await produtoService.addCategoriaProductService(req.params.id, req.body));
     } catch (err) {
         console.log(`erro:${err.message}`);
         return res.status(500).send({ message: `Erro inesperado, tente novamente!`});
@@ -63,8 +62,7 @@ const addCategoriaProductController = async (req, res) => {
 
 const removeCategoriaProductController = async (req, res) => {
     try {
-        const categoria = await produtoService.removeCategoriaProductService(req.params.id, req.body);
-        res.status(200).send(categoria);
+        res.status(200).send(await produtoService.removeCategoriaProductService(req.params.id, req.body));
     } catch (err) {
         console.log(`erro:${err.message}`);
         return res.status(500).send({ message: `Erro inesperado, tente novamente!`});
