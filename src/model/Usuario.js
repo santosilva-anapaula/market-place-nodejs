@@ -22,7 +22,7 @@ const UsuarioSchema = new mongoose.Schema({
         }
     ],
     createdAt: { type: Date, required: true, default: Date.now() },
-    admin: { type: Boolean, required: true, default: false }
+    admin: { type: Boolean, default: false }
 }); //construção do modelo de dados
 
 UsuarioSchema.pre("save", async function(next) {
