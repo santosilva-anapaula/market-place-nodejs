@@ -17,7 +17,7 @@ const UsuarioSchema = new mongoose.Schema({
     ],
     produtos_fav: [
         {
-            _id: { type: mongoose.Schema.Types.ObjectId, unique: true, ref: "produtos" },
+            _id: { type: mongoose.Schema.Types.ObjectId, ref: "produtos" },
             createdAt: { type: Date, default: Date.now() },
         }
     ],
